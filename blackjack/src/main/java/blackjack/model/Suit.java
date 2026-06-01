@@ -1,14 +1,14 @@
 package blackjack.model;
 
-public enum Kolor {
-    PIK("♠"),
-    KIER("♥"),
-    KARO("♦"),
-    TREFL("♣");
+public enum Suit {
+    SPADES("♠"),
+    HEARTS("♥"),
+    DIAMONDS("♦"),
+    CLUBS("♣");
 
     private final String symbol;
 
-    Kolor(String symbol) {
+    Suit(String symbol) {
         this.symbol = symbol;
     }
 
