@@ -9,16 +9,10 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout kodu
-        uses: actions/checkout@v3
-
-      - name: Ustaw Jave 17
-        uses: actions/setup-java@v3
+      - uses: actions/checkout@v3
+      - uses: actions/setup-java@v3
         with:
           java-version: '17'
           distribution: 'temurin'
-
-      - name: Buduj i testuj
-        run: mvn clean test
+      - run: mvn clean test
