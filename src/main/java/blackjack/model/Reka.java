@@ -35,4 +35,8 @@ public class Reka {
         return cards.size() == 2 && getScore() == 21;
     }
 
+    public boolean isBust() {
+        return getScore() > 21;
+    }
+
 }
