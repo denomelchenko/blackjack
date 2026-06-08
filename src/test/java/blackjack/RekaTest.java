@@ -36,4 +36,13 @@ class RekaTest {
         reka.addCard(new Card(Suit.HEARTS, Rank.KING));
         assertTrue(reka.isBlackjack());
     }
+
+    @Test
+    void bustWhenOver21() {
+        Reka reka = new Reka();
+        reka.addCard(new Card(Suit.SPADES, Rank.KING));
+        reka.addCard(new Card(Suit.HEARTS, Rank.KING));
+        reka.addCard(new Card(Suit.DIAMONDS, Rank.FIVE));
+        assertTrue(reka.isBust());
+    }
 }
