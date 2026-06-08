@@ -11,4 +11,12 @@ class RekaTest {
         Reka reka = new Reka();
         assertEquals(0, reka.getScore());
     }
+
+    @Test
+    void handCalculatesScoreWithoutAce() {
+        Reka reka = new Reka();
+        reka.addCard(new Card(Suit.SPADES, Rank.KING));
+        reka.addCard(new Card(Suit.HEARTS, Rank.EIGHT));
+        assertEquals(18, reka.getScore());
+    }
 }
