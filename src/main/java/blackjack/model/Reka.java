@@ -39,4 +39,12 @@ public class Reka {
         return getScore() > 21;
     }
 
+    public List<Card> getCards() {
+        return new ArrayList<>(cards);
+    }
+
+    public void clear() {
+        cards.clear();
+    }
+
 }
