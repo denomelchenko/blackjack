@@ -19,4 +19,13 @@ class RekaTest {
         reka.addCard(new Card(Suit.HEARTS, Rank.EIGHT));
         assertEquals(18, reka.getScore());
     }
+
+    @Test
+    void aceReducesValueWhenOver21() {
+        Reka reka = new Reka();
+        reka.addCard(new Card(Suit.SPADES, Rank.KING));
+        reka.addCard(new Card(Suit.HEARTS, Rank.KING));
+        reka.addCard(new Card(Suit.DIAMONDS, Rank.ACE));
+        assertEquals(21, reka.getScore());
+    }
 }
