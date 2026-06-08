@@ -28,4 +28,12 @@ class RekaTest {
         reka.addCard(new Card(Suit.DIAMONDS, Rank.ACE));
         assertEquals(21, reka.getScore());
     }
+
+    @Test
+    void blackjackIsAceAndFaceCard() {
+        Reka reka = new Reka();
+        reka.addCard(new Card(Suit.SPADES, Rank.ACE));
+        reka.addCard(new Card(Suit.HEARTS, Rank.KING));
+        assertTrue(reka.isBlackjack());
+    }
 }
