@@ -45,4 +45,11 @@ class RekaTest {
         reka.addCard(new Card(Suit.DIAMONDS, Rank.FIVE));
         assertTrue(reka.isBust());
     }
+
+    @Test
+    void handSizeIsCorrect() {
+        Reka reka = new Reka();
+        reka.addCard(new Card(Suit.SPADES, Rank.ACE));
+        assertEquals(1, reka.getCards().size());
+    }
 }
