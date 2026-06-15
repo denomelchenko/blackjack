@@ -1,6 +1,7 @@
 package blackjack.player;
 
 import blackjack.model.Card;
+import blackjack.model.Deck;
 import blackjack.model.Hand;
 
 public class Dealer {
@@ -26,5 +27,9 @@ public class Dealer {
         while (hand.getScore() < 17) {
             hand.addCard(deck.deal());
         }
+    }
+
+    public void resetHand() {
+        hand.clear();
     }
 }
