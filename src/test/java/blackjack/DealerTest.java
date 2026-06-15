@@ -52,6 +52,18 @@ class DealerTest {
         assertTrue(dealer.getScore() >= 17);
         assertEquals(4, dealer.getHand().getCards().size());
     }
+
+    @Test
+    void dealerCanResetHand() {
+        Dealer dealer = new Dealer();
+        dealer.addCard(new blackjack.model.Card(
+                blackjack.model.Suit.SPADES,
+                blackjack.model.Rank.ACE
+        ));
+        dealer.resetHand();
+        assertEquals(0, dealer.getHand().getCards().size());
+        assertEquals(0, dealer.getScore());
+    }
 }
 
 class FixedDeck extends Deck {
