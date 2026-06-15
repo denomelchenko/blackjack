@@ -28,4 +28,12 @@ class HandTest {
         hand.addCard(new Card(Suit.DIAMONDS, Rank.ACE));
         assertEquals(21, hand.getScore());
     }
+
+    @Test
+    void blackjackIsAceAndFaceCard() {
+        Hand hand = new Hand();
+        hand.addCard(new Card(Suit.SPADES, Rank.ACE));
+        hand.addCard(new Card(Suit.HEARTS, Rank.KING));
+        assertTrue(hand.isBlackjack());
+    }
 }
