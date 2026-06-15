@@ -36,4 +36,13 @@ class HandTest {
         hand.addCard(new Card(Suit.HEARTS, Rank.KING));
         assertTrue(hand.isBlackjack());
     }
+
+    @Test
+    void bustWhenOver21() {
+        Hand hand = new Hand();
+        hand.addCard(new Card(Suit.SPADES, Rank.KING));
+        hand.addCard(new Card(Suit.HEARTS, Rank.KING));
+        hand.addCard(new Card(Suit.DIAMONDS, Rank.FIVE));
+        assertTrue(hand.isBust());
+    }
 }
