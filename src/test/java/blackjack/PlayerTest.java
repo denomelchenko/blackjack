@@ -42,4 +42,11 @@ class PlayerTest {
         assertEquals(0, player.getBet());
         assertEquals(800, player.getBalance());
     }
+
+    @Test
+    void playerCanAddCard() {
+        Player player = new Player("Jan", 1000);
+        player.addCard(new blackjack.model.Card(blackjack.model.Suit.SPADES, blackjack.model.Rank.ACE));
+        assertEquals(1, player.getHand().getCards().size());
+    }
 }
