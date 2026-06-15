@@ -19,4 +19,10 @@ class PlayerTest {
         assertEquals(200, player.getBet());
         assertEquals(800, player.getBalance());
     }
+
+    @Test
+    void playerCannotBetMoreThanBalance() {
+        Player player = new Player("Jan", 100);
+        assertThrows(IllegalArgumentException.class, () -> player.placeBet(500));
+    }
 }
