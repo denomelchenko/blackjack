@@ -13,4 +13,14 @@ class DealerTest {
         assertEquals(0, dealer.getHand().getCards().size());
         assertEquals(0, dealer.getScore());
     }
+
+    @Test
+    void dealerCanAddCard() {
+        Dealer dealer = new Dealer();
+        dealer.addCard(new blackjack.model.Card(
+                blackjack.model.Suit.SPADES,
+                blackjack.model.Rank.ACE
+        ));
+        assertEquals(1, dealer.getHand().getCards().size());
+    }
 }
