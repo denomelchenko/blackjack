@@ -21,4 +21,10 @@ public class Dealer {
     public void addCard(Card card) {
         hand.addCard(card);
     }
+
+    public void drawUntilSeventeen(Deck deck) {
+        while (hand.getScore() < 17) {
+            hand.addCard(deck.deal());
+        }
+    }
 }
