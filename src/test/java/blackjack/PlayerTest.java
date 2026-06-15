@@ -33,4 +33,13 @@ class PlayerTest {
         player.win();
         assertEquals(1200, player.getBalance());
     }
+
+    @Test
+    void playerLosesClearsBet() {
+        Player player = new Player("Jan", 1000);
+        player.placeBet(200);
+        player.lose();
+        assertEquals(0, player.getBet());
+        assertEquals(800, player.getBalance());
+    }
 }
