@@ -25,4 +25,12 @@ class PlayerTest {
         Player player = new Player("Jan", 100);
         assertThrows(IllegalArgumentException.class, () -> player.placeBet(500));
     }
+
+    @Test
+    void playerWinDoublesBet() {
+        Player player = new Player("Jan", 1000);
+        player.placeBet(200);
+        player.win();
+        assertEquals(1200, player.getBalance());
+    }
 }
