@@ -19,4 +19,13 @@ class HandTest {
         hand.addCard(new Card(Suit.HEARTS, Rank.EIGHT));
         assertEquals(18, hand.getScore());
     }
+
+    @Test
+    void aceReducesValueWhenOver21() {
+        Hand hand = new Hand();
+        hand.addCard(new Card(Suit.SPADES, Rank.KING));
+        hand.addCard(new Card(Suit.HEARTS, Rank.KING));
+        hand.addCard(new Card(Suit.DIAMONDS, Rank.ACE));
+        assertEquals(21, hand.getScore());
+    }
 }
