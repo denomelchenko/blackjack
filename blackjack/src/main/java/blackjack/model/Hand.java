@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Hand {
+
+    private static final int BLACKJACK_SCORE = 21;
+    private static final int BLACKJACK_CARD_COUNT = 2;
+    private static final int ACE_ADJUSTMENT = 10;
+
     private final List<Card> cards = new ArrayList<>();
 
     public void addCard(Card card) {
@@ -21,8 +26,8 @@ public class Hand {
             }
         }
 
-        while (total > 21 && aceCount > 0) {
-            total -= 10;
+        while (total > BLACKJACK_SCORE && aceCount > 0) {
+            total -= ACE_ADJUSTMENT;
             aceCount--;
         }
 
@@ -30,11 +35,11 @@ public class Hand {
     }
 
     public boolean isBlackjack() {
-        return cards.size() == 2 && getScore() == 21;
+        return cards.size() == BLACKJACK_CARD_COUNT && getScore() == BLACKJACK_SCORE;
     }
 
     public boolean isBust() {
-        return getScore() > 21;
+        return getScore() > BLACKJACK_SCORE;
     }
 
     public List<Card> getCards() {
