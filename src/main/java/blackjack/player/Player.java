@@ -27,4 +27,9 @@ public class Player {
         this.bet = amount;
         this.balance -= amount;
     }
+
+    public void win() {
+        balance += bet * 2;
+        bet = 0;
+    }
 }
