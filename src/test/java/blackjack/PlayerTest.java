@@ -11,4 +11,12 @@ class PlayerTest {
         Player player = new Player("Jan", 1000);
         assertEquals(1000, player.getBalance());
     }
+
+    @Test
+    void playerCanPlaceBet() {
+        Player player = new Player("Jan", 1000);
+        player.placeBet(200);
+        assertEquals(200, player.getBet());
+        assertEquals(800, player.getBalance());
+    }
 }
