@@ -1,5 +1,6 @@
 package blackjack.player;
 
+import blackjack.model.Card;
 import blackjack.model.Hand;
 
 public class Dealer {
@@ -15,5 +16,9 @@ public class Dealer {
 
     public int getScore() {
         return hand.getScore();
+    }
+
+    public void addCard(Card card) {
+        hand.addCard(card);
     }
 }
