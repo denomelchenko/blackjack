@@ -32,4 +32,8 @@ public class Player {
         balance += bet * 2;
         bet = 0;
     }
+
+    public void lose() {
+        bet = 0;
+    }
 }
