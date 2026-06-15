@@ -45,4 +45,10 @@ class HandTest {
         hand.addCard(new Card(Suit.DIAMONDS, Rank.FIVE));
         assertTrue(hand.isBust());
     }
+    @Test
+    void handSizeIsCorrect() {
+        Hand hand = new Hand();
+        hand.addCard(new Card(Suit.SPADES, Rank.ACE));
+        assertEquals(1, hand.getCards().size());
+    }
 }
