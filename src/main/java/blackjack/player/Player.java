@@ -36,4 +36,16 @@ public class Player {
     public void lose() {
         bet = 0;
     }
+
+    public void addCard(Card card) {
+        hand.addCard(card);
+    }
+
+    public int getScore() {
+        return hand.getScore();
+    }
+
+    public void resetHand() {
+        hand.clear();
+    }
 }
