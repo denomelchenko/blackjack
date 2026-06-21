@@ -20,4 +20,17 @@ class BlackjackGameTest {
         RoundResult result = BlackjackGame.determineWinner(player, dealer);
         assertEquals(RoundResult.DEALER_WINS, result);
     }
+
+    @Test
+    void dealerBustMeansPlayerWins() {
+        Player player = new Player("Test", 1000);
+        Dealer dealer = new Dealer();
+        player.addCard(new Card(Suit.SPADES, Rank.KING));
+        player.addCard(new Card(Suit.HEARTS, Rank.EIGHT));
+        dealer.addCard(new Card(Suit.SPADES, Rank.KING));
+        dealer.addCard(new Card(Suit.HEARTS, Rank.KING));
+        dealer.addCard(new Card(Suit.DIAMONDS, Rank.FIVE));
+        RoundResult result = BlackjackGame.determineWinner(player, dealer);
+        assertEquals(RoundResult.PLAYER_WINS, result);
+    }
 }
