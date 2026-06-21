@@ -15,6 +15,16 @@ public class BlackjackGame {
         if (player.getHand().isBlackjack() && !dealer.getHand().isBlackjack()) {
             return RoundResult.PLAYER_BLACKJACK;
         }
-        return null;
+
+        int playerScore = player.getScore();
+        int dealerScore = dealer.getScore();
+
+        if (playerScore > dealerScore) {
+            return RoundResult.PLAYER_WINS;
+        } else if (dealerScore > playerScore) {
+            return RoundResult.DEALER_WINS;
+        } else {
+            return RoundResult.PUSH;
+        }
     }
 }
