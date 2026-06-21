@@ -9,6 +9,9 @@ public class BlackjackGame {
         if (player.getHand().isBust()) {
             return RoundResult.DEALER_WINS;
         }
+        if (dealer.getHand().isBust()) {
+            return RoundResult.PLAYER_WINS;
+        }
         return null;
     }
 }
