@@ -1,5 +1,6 @@
 package blackjack;
 
+import blackjack.model.Deck;
 import blackjack.player.Dealer;
 import blackjack.player.Player;
 
@@ -26,5 +27,12 @@ public class BlackjackGame {
         } else {
             return RoundResult.PUSH;
         }
+    }
+
+    public static void dealInitialCards(Player player, Dealer dealer, Deck deck) {
+        player.addCard(deck.deal());
+        dealer.addCard(deck.deal());
+        player.addCard(deck.deal());
+        dealer.addCard(deck.deal());
     }
 }
