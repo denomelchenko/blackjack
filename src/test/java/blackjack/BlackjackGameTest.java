@@ -45,4 +45,40 @@ class BlackjackGameTest {
         RoundResult result = BlackjackGame.determineWinner(player, dealer);
         assertEquals(RoundResult.PLAYER_BLACKJACK, result);
     }
+
+    @Test
+    void dealerHigherScoreWins() {
+        Player player = new Player("Test", 1000);
+        Dealer dealer = new Dealer();
+        player.addCard(new Card(Suit.SPADES, Rank.KING));
+        player.addCard(new Card(Suit.HEARTS, Rank.SIX));
+        dealer.addCard(new Card(Suit.SPADES, Rank.KING));
+        dealer.addCard(new Card(Suit.HEARTS, Rank.EIGHT));
+        RoundResult result = BlackjackGame.determineWinner(player, dealer);
+        assertEquals(RoundResult.DEALER_WINS, result);
+    }
+
+    @Test
+    void playerHigherScoreWins() {
+        Player player = new Player("Test", 1000);
+        Dealer dealer = new Dealer();
+        player.addCard(new Card(Suit.SPADES, Rank.KING));
+        player.addCard(new Card(Suit.HEARTS, Rank.NINE));
+        dealer.addCard(new Card(Suit.SPADES, Rank.KING));
+        dealer.addCard(new Card(Suit.HEARTS, Rank.SEVEN));
+        RoundResult result = BlackjackGame.determineWinner(player, dealer);
+        assertEquals(RoundResult.PLAYER_WINS, result);
+    }
+
+    @Test
+    void equalScoresResultInPush() {
+        Player player = new Player("Test", 1000);
+        Dealer dealer = new Dealer();
+        player.addCard(new Card(Suit.SPADES, Rank.KING));
+        player.addCard(new Card(Suit.HEARTS, Rank.EIGHT));
+        dealer.addCard(new Card(Suit.DIAMONDS, Rank.KING));
+        dealer.addCard(new Card(Suit.CLUBS, Rank.EIGHT));
+        RoundResult result = BlackjackGame.determineWinner(player, dealer);
+        assertEquals(RoundResult.PUSH, result);
+    }
 }
