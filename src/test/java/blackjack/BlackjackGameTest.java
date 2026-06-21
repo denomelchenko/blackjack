@@ -81,4 +81,14 @@ class BlackjackGameTest {
         RoundResult result = BlackjackGame.determineWinner(player, dealer);
         assertEquals(RoundResult.PUSH, result);
     }
+
+    @Test
+    void dealInitialCardsGivesTwoCardsEach() {
+        Player player = new Player("Test", 1000);
+        Dealer dealer = new Dealer();
+        Deck deck = new Deck();
+        BlackjackGame.dealInitialCards(player, dealer, deck);
+        assertEquals(2, player.getHand().getCards().size());
+        assertEquals(2, dealer.getHand().getCards().size());
+    }
 }
