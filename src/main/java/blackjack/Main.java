@@ -25,6 +25,16 @@ public class Main {
                 playing = answer.equals("y");
             }
         }
+
+        System.out.println("\n=== GAME OVER ===");
+        System.out.println("Final balance: $" + player.getBalance());
+        if (player.getBalance() > 1000) {
+            System.out.println("You won $" + (player.getBalance() - 1000) + "!");
+        } else if (player.getBalance() < 1000) {
+            System.out.println("You lost $" + (1000 - player.getBalance()) + ".");
+        } else {
+            System.out.println("You broke even!");
+        }
     }
 
     private static boolean playRound(Player player) {
