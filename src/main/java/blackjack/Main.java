@@ -1,6 +1,8 @@
 package blackjack;
 import java.util.Scanner;
 import blackjack.player.Player;
+import blackjack.model.Deck;
+import blackjack.player.Dealer;
 
 public class Main {
 
@@ -48,6 +50,23 @@ public class Main {
             player.placeBet(bet);
         } catch (Exception e) {
             System.out.println("Invalid bet!");
+            return true;
+        }
+
+        Deck deck = new Deck();
+        deck.shuffle();
+        Dealer dealer = new Dealer();
+        player.resetHand();
+
+        BlackjackGame.dealInitialCards(player, dealer, deck);
+
+        System.out.println("\nYour hand: " + player.getHand().getCards() + " = " + player.getScore());
+        System.out.println("Dealer shows: " + dealer.getHand().getCards().get(0) + " [?]");
+
+        if (player.getHand().isBlackjack()) {
+            System.out.println("\nBLACKJACK! You win!");
+            player.winBlackjack();
+            System.out.println("Balance: $" + player.getBalance());
             return true;
         }
         return true;
