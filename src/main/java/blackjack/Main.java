@@ -1,5 +1,6 @@
 package blackjack;
 import java.util.Scanner;
+import blackjack.player.Player;
 
 public class Main {
 
@@ -11,5 +12,8 @@ public class Main {
         System.out.println("╚══════════════════════════╝");
         System.out.print("Enter your name: ");
         String name = scanner.nextLine();
+
+        Player player = new Player(name, 1000);
+        System.out.println("\nWelcome, " + name + "! Your balance: $" + player.getBalance());
     }
 }
