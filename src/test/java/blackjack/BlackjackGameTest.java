@@ -118,4 +118,16 @@ class BlackjackGameTest {
         RoundResult result = BlackjackGame.determineWinner(player, dealer);
         assertEquals(RoundResult.PLAYER_WINS, result);
     }
+
+    @Test
+    void pushWhenBothHaveTwenty() {
+        Player player = new Player("Test", 1000);
+        Dealer dealer = new Dealer();
+        player.addCard(new Card(Suit.SPADES, Rank.KING));
+        player.addCard(new Card(Suit.HEARTS, Rank.QUEEN));
+        dealer.addCard(new Card(Suit.DIAMONDS, Rank.KING));
+        dealer.addCard(new Card(Suit.CLUBS, Rank.QUEEN));
+        RoundResult result = BlackjackGame.determineWinner(player, dealer);
+        assertEquals(RoundResult.PUSH, result);
+    }
 }
