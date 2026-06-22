@@ -69,6 +69,23 @@ public class Main {
             System.out.println("Balance: $" + player.getBalance());
             return true;
         }
+
+        boolean playerTurn = true;
+        while (playerTurn && !player.getHand().isBust()) {
+            System.out.print("\nYour move: (h)it / (s)tand: ");
+            String move = scanner.nextLine().trim().toLowerCase();
+            if (move.equals("h")) {
+                player.addCard(deck.deal());
+                System.out.println("Your hand: " + player.getHand().getCards() + " = " + player.getScore());
+                if (player.getHand().isBust()) {
+                    System.out.println("BUST! You exceeded 21.");
+                }
+            } else if (move.equals("s")) {
+                playerTurn = false;
+            } else {
+                System.out.println("Enter 'h' (hit) or 's' (stand).");
+            }
+        }
         return true;
     }
 }
