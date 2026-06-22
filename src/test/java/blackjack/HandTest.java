@@ -51,4 +51,13 @@ class HandTest {
         hand.addCard(new Card(Suit.SPADES, Rank.ACE));
         assertEquals(1, hand.getCards().size());
     }
+
+    @Test
+    void handNotBustExactlyAt21() {
+        Hand hand = new Hand();
+        hand.addCard(new Card(Suit.SPADES, Rank.SEVEN));
+        hand.addCard(new Card(Suit.HEARTS, Rank.SEVEN));
+        hand.addCard(new Card(Suit.DIAMONDS, Rank.SEVEN));
+        assertFalse(hand.isBust());
+    }
 }
