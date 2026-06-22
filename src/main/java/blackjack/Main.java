@@ -39,6 +39,17 @@ public class Main {
 
     private static boolean playRound(Player player) {
         System.out.println("\n--- New Round ---");
+        System.out.println("Balance: $" + player.getBalance());
+        System.out.print("Place your bet (1-" + player.getBalance() + "): ");
+
+        int bet;
+        try {
+            bet = Integer.parseInt(scanner.nextLine().trim());
+            player.placeBet(bet);
+        } catch (Exception e) {
+            System.out.println("Invalid bet!");
+            return true;
+        }
         return true;
     }
 }
