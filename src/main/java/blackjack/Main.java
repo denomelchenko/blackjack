@@ -86,6 +86,12 @@ public class Main {
                 System.out.println("Enter 'h' (hit) or 's' (stand).");
             }
         }
+
+        if (!player.getHand().isBust()) {
+            System.out.println("\nDealer's hand: " + dealer.getHand().getCards());
+            dealer.drawUntilSeventeen(deck);
+            System.out.println("Dealer draws... Hand: " + dealer.getHand().getCards() + " = " + dealer.getScore());
+        }
         return true;
     }
 }
