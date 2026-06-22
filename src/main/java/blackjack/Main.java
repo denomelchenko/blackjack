@@ -65,7 +65,7 @@ public class Main {
 
         if (player.getHand().isBlackjack()) {
             System.out.println("\nBLACKJACK! You win!");
-            player.winBlackjack();
+            player.win();
             System.out.println("Balance: $" + player.getBalance());
             return true;
         }
@@ -92,6 +92,20 @@ public class Main {
             dealer.drawUntilSeventeen(deck);
             System.out.println("Dealer draws... Hand: " + dealer.getHand().getCards() + " = " + dealer.getScore());
         }
+
+        RoundResult result = BlackjackGame.determineWinner(player, dealer);
+
+        System.out.println("\n--- RESULT ---");
+        System.out.println("You: " + player.getScore() + " | Dealer: " + dealer.getScore());
+
+        switch (result) {
+            case PLAYER_WINS -> { System.out.println("You win!"); player.win(); }
+            case PLAYER_BLACKJACK -> { System.out.println("BLACKJACK! You win 3:2!"); player.win(); }
+            case DEALER_WINS -> { System.out.println("Dealer wins."); player.lose(); }
+            case PUSH -> { System.out.println("Push!"); }
+        }
+
+        System.out.println("Balance: $" + player.getBalance());
         return true;
     }
 }
